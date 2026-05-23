@@ -1,0 +1,1 @@
+{"data":"file:\/\/\/storage\/emulated\/0\/Android\/data\/org.qpython.qpy3\/cache\/5307","type":"","extras":{"from-myfiles":true},"categories":null,"action":"android.intent.action.VIEW","packagename":"org.qpython.qpy3","classname":"org.qpython.qpy.texteditor.EditorActivity","flags":1} # ExtraTypes={from-myfiles=java.lang.Boolean}
