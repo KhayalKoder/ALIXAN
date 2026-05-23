@@ -32,6 +32,12 @@ STARTING_CHIPS = 1000.0
 AVATARS = ["man1", "man2", "man3", "woman1", "woman2", "woman3"]
 
 
+# -------- Root --------
+@app.get("/")
+async def root():
+    return {"status": "ok", "message": "ALIXAN API işləyir"}
+
+
 # -------- Models --------
 class RegisterReq(BaseModel):
     email: EmailStr
@@ -144,7 +150,6 @@ async def list_tables():
 @api.post("/tables/quick-seat")
 async def quick_seat(req: JoinTableReq, request: Request):
     user = await _get_user(request)
-    # Refresh chips from DB
     fresh = await db.users.find_one({"id": user["id"]}, {"_id": 0})
     if not fresh:
         raise HTTPException(status_code=404, detail="User not found")
@@ -169,7 +174,6 @@ async def leave_table(request: Request):
 # -------- WebSocket --------
 @app.websocket("/api/ws/table/{table_id}")
 async def ws_table(websocket: WebSocket, table_id: str, token: str = ""):
-    # Try cookie first, then query param
     if not token:
         token = websocket.cookies.get("access_token", "")
     user = await get_user_from_token(token, db) if token else None
@@ -209,7 +213,6 @@ async def ws_table(websocket: WebSocket, table_id: str, token: str = ""):
 # -------- Mount router & CORS --------
 app.include_router(api)
 
-# CORS: allow_credentials with non-wildcard origin
 frontend_url = os.environ.get("FRONTEND_URL", "http://localhost:3000")
 app.add_middleware(
     CORSMiddleware,
@@ -229,3 +232,4 @@ async def startup():
 @app.on_event("shutdown")
 async def shutdown():
     client.close()
+
