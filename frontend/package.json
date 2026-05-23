@@ -61,7 +61,7 @@
     "zod": "^3.24.4"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "serve -s build",
     "build": "craco build",
     "test": "craco test"
   },
@@ -92,4 +92,3 @@
     "tailwindcss": "^3.4.17"
   }
 }
-
