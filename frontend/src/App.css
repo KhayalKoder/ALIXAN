@@ -1,0 +1,4 @@
+/* App.css - left intentionally minimal; styles live in tailwind + index.css */
+.App {
+    min-height: 100vh;
+}

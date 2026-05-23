@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #0a0a0c;
+    color: #f4f4f5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: "Outfit", "Helvetica Neue", sans-serif;
+    overflow-x: hidden;
+}
+
+.font-serif {
+    font-family: "Cormorant Garamond", "Times New Roman", serif !important;
+}
+.font-sans {
+    font-family: "Outfit", "Helvetica Neue", sans-serif !important;
+}
+.font-mono {
+    font-family: "JetBrains Mono", monospace !important;
+}
+
+/* Custom selection */
+::selection {
+    background: #d4af37;
+    color: #0a0a0c;
+}
+
+/* Premium scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #0a0a0c;
+}
+::-webkit-scrollbar-thumb {
+    background: #2a2a30;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #d4af37;
+}
+
+@layer base {
+    :root {
+        --background: 240 5% 4%;
+        --foreground: 0 0% 96%;
+        --card: 240 5% 8%;
+        --card-foreground: 0 0% 96%;
+        --popover: 240 5% 8%;
+        --popover-foreground: 0 0% 96%;
+        --primary: 46 65% 52%;
+        --primary-foreground: 0 0% 4%;
+        --secondary: 240 4% 12%;
+        --secondary-foreground: 0 0% 96%;
+        --muted: 240 4% 12%;
+        --muted-foreground: 0 0% 60%;
+        --accent: 240 4% 12%;
+        --accent-foreground: 0 0% 96%;
+        --destructive: 0 65% 30%;
+        --destructive-foreground: 0 0% 96%;
+        --border: 240 4% 16%;
+        --input: 240 4% 16%;
+        --ring: 46 65% 52%;
+        --radius: 0;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        padding-left: inherit;
+        padding-right: inherit;
+        padding-top: inherit;
+        padding-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+        border-left-width: inherit;
+        border-right-width: inherit;
+        border-top-width: inherit;
+        border-bottom-width: inherit;
+        border-left-style: inherit;
+        border-right-style: inherit;
+        border-top-style: inherit;
+        border-bottom-style: inherit;
+        border-left-color: inherit;
+        border-right-color: inherit;
+        border-top-color: inherit;
+        border-bottom-color: inherit;
+    }
+}
